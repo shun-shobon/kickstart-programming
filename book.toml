@@ -1,6 +1,6 @@
 [book]
 authors = ["shun-shobon"]
-language = "en"
+language = "ja"
 multilingual = false
 src = "src"
 title = "Kickstart Programming"
