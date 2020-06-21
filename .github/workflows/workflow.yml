@@ -15,6 +15,8 @@ jobs:
           mdbook-version: 'latest'
 
       - name: Build
+        env:
+          MDBOOK_OUTPUT__HTML__GOOGLE_ANALYTICS: ${{ secrets.MDBOOK_OUTPUT__HTML__GOOGLE_ANALYTICS }}
         run: |
           mdbook test
           mdbook build
