@@ -1,0 +1,47 @@
+name: workflow
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
+
+      - name: Build
+        env:
+          MDBOOK_OUTPUT__HTML__GOOGLE_ANALYTICS: ${{ secrets.MDBOOK_OUTPUT__HTML__GOOGLE_ANALYTICS }}
+        run: |
+          mdbook test
+          mdbook build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: book
+          path: book
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs:
+      - build
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: book
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
+          cname: ${{ secrets.DOMAIN }}
+
