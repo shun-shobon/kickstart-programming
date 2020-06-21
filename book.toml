@@ -6,3 +6,7 @@ src = "src"
 title = "Kickstart Programming"
 description = "情報技術研究部の新入部員向け資料です。"
 
+[output.html]
+mathjax-support = true
+git-repository-url = "https://github.com/shun-shobon/kickstart-programming"
+
