@@ -9,6 +9,13 @@
     "Shibaken28"
   ],
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "scripts": {
+    "commitlint": "commitlint -f HEAD"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1"
+  }
 }
 
