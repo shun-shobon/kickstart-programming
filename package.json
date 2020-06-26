@@ -1,0 +1,26 @@
+{
+  "name": "kickstart-programming",
+  "version": "0.1.0",
+  "description": "情報技術研究部の新入部員向け資料です。",
+  "repository": "https://github.com/shun-shobon/kickstart-programming.git",
+  "author": "shun-shobon <shun.shobon@gmail.com>",
+  "contributors": [
+    "1hPa",
+    "Shibaken28"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "commitlint": "commitlint -f HEAD"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "husky": "^4.2.5"
+  }
+}
