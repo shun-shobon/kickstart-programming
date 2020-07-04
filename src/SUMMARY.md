@@ -2,4 +2,4 @@
 
 [ようこそ](./welcome.md)
 
-- [Chapter 1](./chapter_1.md)
+- [Git/GitHubを使いこなす](./Git-GitHub.md)
